@@ -1,0 +1,47 @@
+class Solution:
+    
+    # Function to find the minimum number of pages.
+    def findPages(self, n, arr, m):
+        if n < m:
+            return -1
+
+        start = max(arr)
+        end = sum(arr)
+        answer = start
+
+        while start <= end:
+            mid = (start + end) // 2
+            pages = 0
+            count = 1
+
+            for i in range(n):
+                if pages + arr[i] > mid:
+                    count += 1
+                    pages = arr[i]
+                    if count > m:
+                        break
+                else:
+                    pages += arr[i]
+
+            if count <= m:
+                answer = mid
+                end = mid - 1
+            else:
+                start = mid + 1
+        
+        return answer
+
+ 
+# Driver Code Starts
+if __name__ == '__main__':
+    t = int(input())
+    for _ in range(t):
+
+        n = int(input())
+
+        arr = [int(x) for x in input().strip().split()]
+        m = int(input())
+
+        ob = Solution()
+
+        print(ob.findPages(n, arr, m))
