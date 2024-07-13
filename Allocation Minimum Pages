@@ -1,6 +1,6 @@
 class Solution:
     
-    # Function to find the minimum number of pages.
+    # Function to find the minimum number of pages
     def findPages(self, n, arr, m):
         if n < m:
             return -1
