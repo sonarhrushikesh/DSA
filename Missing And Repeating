@@ -1,0 +1,28 @@
+
+class Solve {
+    int[] findTwoElement(int arr[], int n) {
+        int missing = 0;
+        int repeat = 0;
+
+        // Decrease each element in array by 1
+        for (int i = 0; i < arr.length; i++)
+            arr[i]--;
+
+        // Add the value of n to each index by performing this operation
+        for (int i = 0; i < arr.length; i++)
+            arr[arr[i] % n] += n;
+
+        // Find the missing and repeating elements
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] / n == 0) {
+                missing = i + 1;
+            }
+            if (arr[i] / n == 2) {
+                repeat = i + 1;
+            }
+        }
+        
+        
+        return new int[]{repeat, missing};
+    }
+}
