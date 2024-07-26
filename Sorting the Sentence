@@ -1,0 +1,16 @@
+class Solution {
+    public String sortSentence(String s) {
+       // create string array for input string length
+       String[] str = new String[s.split(" ").length];
+
+       // iteration of each sentence in string 
+       for(String st : s.split(" ")){
+            // push sentence at actual position in string array wrt output
+            str[st.charAt(st.length() - 1) - '1'] = st.substring(0, st.length() - 1);
+       }
+
+       // Join the words in str with spaces
+       return String.join(" ", str);
+
+    }
+}
