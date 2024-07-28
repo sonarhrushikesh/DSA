@@ -1,0 +1,23 @@
+class Solution {
+    public String addStrings(String num1, String num2) {
+        StringBuilder result = new StringBuilder();
+        int str1_len = num1.length() - 1;
+        int str2_len = num2.length() - 1;
+        int carry = 0;
+
+        while(str1_len >= 0 || str2_len >= 0 || carry > 0){
+            int sum = carry;
+
+            if(str1_len >= 0)
+                sum += num1.charAt(str1_len--) - '0';
+
+            if(str2_len >= 0)
+                sum += num2.charAt(str2_len--) - '0';
+
+            result.append(sum % 10);
+            carry = sum / 10;
+        }
+
+        return result.reverse().toString();
+    }
+}
