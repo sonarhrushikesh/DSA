@@ -4,6 +4,7 @@ class Solution {
         int end = arr.length - 1;
 
         while(start <= end){
+            // this statement handel the array out of bound exception error
             int mid = end + (start - end) / 2;
 
             if(arr[mid] > arr[mid - 1] && arr[mid] > arr[mid + 1])
